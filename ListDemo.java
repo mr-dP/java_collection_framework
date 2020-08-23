@@ -32,13 +32,17 @@ class ListDemo {
       System.out.print(al1.get(i) + " ");
     }    //    20 10 14 24 44 14 24 34 44 54 34 44 54
 
+
     System.out.println();
+
 
     for(Integer x : al1) {
       System.out.print(x + " ");
     }    //    20 10 14 24 44 14 24 34 44 54 34 44 54
 
+
     System.out.println();
+
 
     Iterator<Integer> itr = al1.iterator();
     //  Iterator is like a reference on all the elements
@@ -48,33 +52,43 @@ class ListDemo {
       System.out.print(itr.next() + " ");
     }    //    20 10 14 24 44 14 24 34 44 54 34 44 54
 
+
     System.out.println();
 
-    ListIterator<Integer> litr = al1.listIterator();
 
+    ListIterator<Integer> litr = al1.listIterator();
 
     while(litr.hasNext()) {
       System.out.print(litr.next() + " ");
     }    //    20 10 14 24 44 14 24 34 44 54 34 44 54
 
+
     System.out.println();
+
 
     // Iterator allow only forward direction
     // ListIterator allows bidirectional movement
+
 
     for(ListIterator<Integer> ir = al1.listIterator(); ir.hasNext(); ) {    //    no need of updation
       System.out.print(ir.next() + " ");
     }    //    20 10 14 24 44 14 24 34 44 54 34 44 54
 
+
     System.out.println();
+
 
     al2.forEach( x -> System.out.print(x + " ") );    //    14 24 88 44 54
 
+
     System.out.println();
+
 
     al2.forEach(System.out::print);    //    :: = Scope resolution
 
+
     System.out.println();
+
 
     al1.forEach(x -> show(x));    //    44 44 54 44 54
 
