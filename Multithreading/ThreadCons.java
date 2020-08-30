@@ -19,10 +19,11 @@ class MyThread extends Thread {
       System.out.println(count++);
       try {
         // "sleep" will make a Thread delay for a while
-        Thread.sleep(1000000);  //  this is causing "InterruptedException"; whenevre it is going to sleep it may be interrupted by some other Thread
+        Thread.sleep(1000);  //  this is causing "InterruptedException"; whenevre it is going to sleep it may be interrupted by some other Thread
       } catch(InterruptedException e) {
         System.out.println(e);
       }
+
     }
 
   }
