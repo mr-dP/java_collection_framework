@@ -1,12 +1,18 @@
 // if 2 Threads are using same object, they should use one after another
 
 class MyData {
-    synchronized public void display(String str) {       //      option - 2: the method itself in synchronized; no thread can enter in this method if it is already in use
+    synchronized public void display(String str) throws Exception {       //      option - 2: the method itself in synchronized; no thread can enter in this method if it is already in use
 //        synchronized (this) {               //      option - 1: whatever is inside the synchronized block ony one thread is allowed inside at a time
+//        this piece of code is Critical Section:- A piece of code which may be executed simultaneously by multiple threads/programs
         for (int i = 0; i < str.length(); i++) {
             System.out.print(str.charAt(i));
-        }
+            try {
+                Thread.sleep(1000);    //  the other thread cannot enter in because we have used Synchronized
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
 //        }
+        }
     }
 }
 
@@ -18,7 +24,11 @@ class MyThread1 extends Thread {
     }
 
     public void run() {
-        d.display("The Return of the King");
+        try {
+            d.display("The Return of the King");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
@@ -30,7 +40,11 @@ class MyThread2 extends Thread {
     }
 
     public void run() {
-        d.display("The Two Towers");
+        try {
+            d.display("The Two Towers");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
