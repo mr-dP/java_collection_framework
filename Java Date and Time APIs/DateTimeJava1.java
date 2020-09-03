@@ -36,6 +36,13 @@ class DateTimeJava1 {
     // The calender follows starting year as 1900
     System.out.println(d.getYear() + 1900);
 
-  }
+}
 
 }
+
+/*
+ * Date d = new Date();
+ *  -> This is storing Date in terms of milliseconds passed from Jan 1, 1970
+ *  -> This Date object will contain both date and time
+ *  -> This is Mutable; after creating an object we can change it with "set()" methods
+*/
